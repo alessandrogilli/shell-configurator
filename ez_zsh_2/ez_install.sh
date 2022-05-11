@@ -1,11 +1,18 @@
 #!/bin/bash
 # Install dependencies
-echo "When installation of zsh is complete, a zsh shell will be open. When it occurs, please type \"exit\" to proceed configuration."
-read -p "Press \"Enter\" to continue..."
+#echo "When installation of zsh is complete, a zsh shell will be open. When it occurs, please type \"exit\" to proceed configuration."
+#read -p "Press \"Enter\" to continue..."
 
 apt update -y
 apt install git curl wget zsh exa -y 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Oh-my-zsh
+if curl -fsLO https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+then
+    sed -i 's/exec zsh -l/#exec zsh -l/g' ./install.sh
+    sh ./install.sh
+    rm ./install.sh
+fi
 
 # Theme
 git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
