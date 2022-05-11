@@ -10,7 +10,7 @@ apt install git curl wget zsh exa -y
 if curl -fsLO https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 then
     sed -i 's/exec zsh -l/#exec zsh -l/g' ./install.sh
-    sh -c ./install.sh
+    sh ./install.sh
     rm ./install.sh
 fi
 
