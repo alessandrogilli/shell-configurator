@@ -3,8 +3,8 @@
 #echo "When installation of zsh is complete, a zsh shell will be open. When it occurs, please type \"exit\" to proceed configuration."
 #read -p "Press \"Enter\" to continue..."
 
-apt update -y
-apt install git curl wget zsh exa -y 
+sudo apt update -y
+sudo apt install git curl wget zsh exa -y 
 
 # Oh-my-zsh
 if curl -fsLO https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
