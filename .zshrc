@@ -110,8 +110,17 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-if [ -x "$(command -v exa)" ]; then
-    alias ls="exa"
-    alias la="exa --long --all --group"
+# --- alessandrogilli/configurations ---
+# EZA
+if [ -x "$(command -v eza)" ]; then
+    alias ls="eza --icons"
+    alias la="eza --all --long --header --icons --git"
 fi
-
+# BATCAT
+if [ -x "$(command -v batcat)" ]; then
+    alias bat="batcat"
+    alias cat="batcat -pp"
+fi
+# MOST
+export PAGER="most"
+# --------------------------------------
