@@ -40,11 +40,15 @@ do
 done
 
 # Oh-my-zsh
+mkdir ohmyzsh
+cd ohmyzsh
 if curl -fsLO https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh; then
     sed -i 's/exec zsh -l/#exec zsh -l/g' ./install.sh
     sh ./install.sh
     rm ./install.sh
 fi
+cd ..
+rm -rf ohmyzsh
 
 # Theme
 git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
