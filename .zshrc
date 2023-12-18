@@ -110,7 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# --- alessandrogilli/configurations ---
+# --- alessandrogilli/shell-configurator ---
 # EZA
 if [ -x "$(command -v eza)" ]; then
     alias ls="eza --icons"
@@ -122,5 +122,17 @@ if [ -x "$(command -v batcat)" ]; then
     alias cat="batcat -pp"
 fi
 # MOST
-export PAGER="most"
+if [ -x "$(command -v most)" ]; then
+    export PAGER="most"
+fi
+# Docker Based CLIs
+if [ -x "$(command -v docker)" ]; then
+    # CTOP
+    alias ctop="docker run --rm -ti \
+    --name=ctop \
+    --volume /var/run/docker.sock:/var/run/docker.sock:ro \
+    quay.io/vektorlab/ctop:latest"
+    # K9S
+    alias k9s="docker run --rm -it -v ~/.kube/config:/root/.kube/config quay.io/derailed/k9s"
+fi
 # --------------------------------------
