@@ -136,3 +136,6 @@ if [ -x "$(command -v docker)" ]; then
     alias k9s="docker run --rm -it -v ~/.kube/config:/root/.kube/config quay.io/derailed/k9s"
 fi
 # --------------------------------------
+
+# Kubectl zsh autocompletion
+source <(kubectl completion zsh)
