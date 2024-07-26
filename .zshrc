@@ -137,5 +137,7 @@ if [ -x "$(command -v docker)" ]; then
 fi
 # --------------------------------------
 
-# Kubectl zsh autocompletion
-source <(kubectl completion zsh)
+# Kubectl autocompletion
+if [ -x "$(command -v kubectl)" ]; then
+    source <(kubectl completion zsh)
+fi
